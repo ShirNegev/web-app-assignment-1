@@ -3,5 +3,4 @@ import BaseController from "./base_controller";
 
 const commentsController = new BaseController<IComments>(commentsModel);
 
-
 export default commentsController
