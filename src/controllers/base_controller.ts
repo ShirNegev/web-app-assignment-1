@@ -9,9 +9,14 @@ class BaseController<T> {
 
     async getAll(req: Request, res: Response) {
         const ownerFilter = req.query.owner;
+        const postFilter  = req.query.postId;
+        
         try {
             if (ownerFilter) {
                 const item = await this.model.find({ owner: ownerFilter });
+                res.send(item);
+            } else if (postFilter) {
+                const item = await this.model.find({ postId: postFilter });
                 res.send(item);
             } else {
                 const items = await this.model.find();
